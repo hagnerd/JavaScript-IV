@@ -137,38 +137,40 @@ console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
 // * Create two new objects, one a villain and one a hero and fight it out with methods!
 
-function Villain(villainAttrs) {
-  Humanoid.call(this, villainAttrs);
-}
-
-Villain.prototype = Object.create(Humanoid.prototype);
-
-Villain.prototype.punch = function(enemyObj) {
-  enemyObj.healthPoints -= 1;
-
-  if (enemyObj.healthPoints <= 0) {
-    enemyObj.destroy();
-    return `${this.name} has destroyed ${enemyObj.name}`;
+class Villain extends Humanoid {
+  constructor(villainAttrs) {
+    super(villainAttrs);
   }
 
-  return `${this.name} has damaged ${enemyObj.name}`;
-};
+  punch(enemyObj) {
+    enemyObj.healthPoints -= 1;
 
-function Hero(heroAttrs) {
-  Humanoid.call(this, heroAttrs);
+    if (enemyObj.healthPoints <= 0) {
+      enemyObj.destroy();
+      return `${this.name} has destroyed ${enemyObj.name}`;
+    }
+
+    return `${this.name} has damaged ${enemyObj.name}`;
+  };
+
 }
 
-Hero.prototype = Object.create(Humanoid.prototype);
 
-Hero.prototype.slash = function(enemyObj) {
-  enemyObj.healthPoints -= 5;
-  if (enemyObj.healthPoints <= 0) {
-    enemyObj.destroy();
-    return `${this.name} has destroyed ${enemyObj.name}`;
+class Hero extends Humanoid {
+  constructor(heroAttrs) {
+    super(heroAttrs);
   }
 
-  return `${this.name} has damaged ${enemyObj.name}`;
-};
+  slash(enemyObj) {
+    enemyObj.healthPoints -= 5;
+    if (enemyObj.healthPoints <= 0) {
+      enemyObj.destroy();
+      return `${this.name} has destroyed ${enemyObj.name}`;
+    }
+
+    return `${this.name} has damaged ${enemyObj.name}`;
+  }
+}
 
 const villain = new Villain({
   createdAt: new Date(),
