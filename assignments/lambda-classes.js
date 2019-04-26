@@ -121,3 +121,21 @@ class ProjectManager extends Instructor {
     console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
   }
 }
+
+let leslie = new Person({
+  name: "Leslie",
+  age: 24,
+  location: "Hopkins, MN",
+});
+
+let carly = new Person({
+  name: "Carly",
+  age: 19,
+  location: "Fargo, ND",
+});
+
+let mitch = new Person({
+  name: "Mitch",
+  age: 31,
+  location: "Saint Francis, MN"
+});
