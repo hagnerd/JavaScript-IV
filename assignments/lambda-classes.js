@@ -78,7 +78,7 @@ class Student extends Person {
   }
 
   listSubjects() {
-    this.favSubjects.forEach(console.log);
+    this.favSubjects.forEach(subject => console.log(subject));
   }
 
   PRAssignment(subject) {
@@ -109,6 +109,7 @@ class Student extends Person {
 
 class ProjectManager extends Instructor {
   constructor(attrs) {
+    super(attrs);
     this.gradClassName = attrs.gradClassName;
     this.favInstructor = attrs.favInstructor;
   }
@@ -170,13 +171,19 @@ const billy = new Student({
   previousBackground: "Fry Cook",
   className: "UX2",
   favSubjects: [ "User Interface Design", "A11y", ],
-})
+});
+
+console.log(matt.previousBackground);
+console.log(todd.className);
+matt.listSubjects();
+matt.PRAssignment("Classes in JavaScript");
+matt.sprintChallenge("JavaScript Fundamentals");
 
 // INSTRUCTORs
 const keiran = new Instructor({
   name: "Keiran",
   age: 24,
-  location: "San Francisco, CA",
+  location: "Miami, FL",
   specialty: "Memes",
   favLanguage: "JavaScript",
   catchPhrase: "Hotdog Menu",
@@ -206,14 +213,28 @@ console.log(dustin.catchPhrase);
 keiran.demo("Pseudo-Classical Inheritance");
 dustin.grade(matt, "react");
 
-// this.specialty = attrs.specialty;
-// this.favLanguage = attrs.favLanguage;
-// this.catchPhrase = attrs.catchPhrase;
-// }
+const richard = new ProjectManager({
+  name: "Richard",
+  age: 60,
+  location: "Dallas, TX",
+  specialty: "UX",
+  favLanguage: "CSS",
+  catchPhrase: "Have a good night",
+  gradClassName: "CS",
+  favInstructor: "Dan",
+});
+const ari = new ProjectManager({
+  name: "Ari",
+  age: 25,
+  location: "San Diego, CA",
+  specialty: "Functional Programming",
+  favLanguage: "JavaScript",
+  catchPhrase: "It's Saturday",
+  gradClassName: "WebFT10",
+  favInstructor: "Dustin",
+});
 
-// demo(subject) {
-// console.log(`Today we are learning about ${subject}`);
-// }
-// grade(student, subject) {
-// console.log(`${student.name} receives a perfect score on ${subject}`)
-// }
+richard.standUp("webpt6_richard");
+ari.debug(billy, "Pseudo-Classical Inheritence");
+
+
