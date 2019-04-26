@@ -122,19 +122,20 @@ class ProjectManager extends Instructor {
   }
 }
 
-let leslie = new Person({
+// PERSONs
+const leslie = new Person({
   name: "Leslie",
   age: 24,
   location: "Hopkins, MN",
 });
 
-let carly = new Person({
+const carly = new Person({
   name: "Carly",
   age: 19,
   location: "Fargo, ND",
 });
 
-let mitch = new Person({
+const mitch = new Person({
   name: "Mitch",
   age: 31,
   location: "Saint Francis, MN"
@@ -145,4 +146,74 @@ console.log(carly.age);
 console.log(mitch.location);
 leslie.speak();
 
+// STUDENTs
+const matt = new Student({
+  name: "Matt",
+  age: 26,
+  location: "Hopkins, MN",
+  previousBackground: "Marketing",
+  className: "WebPT6",
+  favSubjects: [ "JavaScript", "Functional Programming" ],
+})
+const todd = new Student({
+  name: "Todd",
+  age: 32,
+  location: "Atlanta, GA",
+  previousBackground: "Mechanic",
+  className: "iOS4",
+  favSubjects: [ "Swift" ],
+})
+const billy = new Student({
+  name: "Billy",
+  age: 22,
+  location: "Seattle, WA",
+  previousBackground: "Fry Cook",
+  className: "UX2",
+  favSubjects: [ "User Interface Design", "A11y", ],
+})
 
+// INSTRUCTORs
+const keiran = new Instructor({
+  name: "Keiran",
+  age: 24,
+  location: "San Francisco, CA",
+  specialty: "Memes",
+  favLanguage: "JavaScript",
+  catchPhrase: "Hotdog Menu",
+});
+
+const dan = new Instructor({
+  name: "Dan",
+  age: 30,
+  location: "Jackson Hole, WY",
+  specialty: "Chill tunes",
+  favLanguage: "JavaScript",
+  catchPhrase: "Corgi's are cool",
+});
+
+const dustin = new Instructor({
+  name: "Dan",
+  age: 28,
+  location: "Portland, OR",
+  specialty: "React",
+  favLanguage: "JavaScript",
+  catchPhrase: "Don't forget the homies"
+});
+
+console.log(keiran.specialty);
+console.log(dan.favLanguage);
+console.log(dustin.catchPhrase);
+keiran.demo("Pseudo-Classical Inheritance");
+dustin.grade(matt, "react");
+
+// this.specialty = attrs.specialty;
+// this.favLanguage = attrs.favLanguage;
+// this.catchPhrase = attrs.catchPhrase;
+// }
+
+// demo(subject) {
+// console.log(`Today we are learning about ${subject}`);
+// }
+// grade(student, subject) {
+// console.log(`${student.name} receives a perfect score on ${subject}`)
+// }
