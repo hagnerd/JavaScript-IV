@@ -139,3 +139,10 @@ let mitch = new Person({
   age: 31,
   location: "Saint Francis, MN"
 });
+
+console.log(leslie.name);
+console.log(carly.age);
+console.log(mitch.location);
+leslie.speak();
+
+
